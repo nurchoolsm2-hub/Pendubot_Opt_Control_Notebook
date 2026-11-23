@@ -37,8 +37,10 @@ These commands do not require activating a PowerShell script. Use Python 3.12 or
 2. Choose **Kernel → Restart Kernel and Run All Cells**. Allow a few minutes for the first JAX compilation and animation generation; no GPU is needed.
 3. Edit masses, link lengths, timing, cost weights, or iteration limits in **Section 2**. Then rerun from that section onward. The notebook shows exactly where to put `replace(cfg, ...)`.
 
+DDP and iLQR have separate Hamiltonian cells (**10a/10b**), backward-pass cells (**11a/11b**), and complete solver cells (**13a/13b**), with equations and a code walkthrough for each. After running the setup, run **14b** for DDP or **14c** for iLQR independently. Run **14d** and the later plots to compare the updated results. DDP evaluates dynamics Hessians; iLQR uses only dynamics Jacobians.
+
 Saved outputs show an executed reference run; rerunning computes new results. GitHub renders the explanatory text and static plots, while the animation runs in Jupyter after execution. The notebook uses unwrapped angles in the objective and wrapped angle errors for physical reporting. It distinguishes optimizer convergence from reaching and holding the goal. Torque is unconstrained and joints are frictionless.
 
 Only the teaching notebook and small setup/documentation files are included. The original dashboard project is not required.
 
-The saved notebook was executed from a fresh kernel: all 18 code cells completed without errors. Both methods converged to approximately `J = 5.17531`, and both trajectory-feedback experiments passed the arrival and five-second hold checks. The reference environment used Python 3.14.7, JAX 0.12.0.1, NumPy 2.5.4, SciPy 1.18.1, and Matplotlib 3.11.2; results and timing may vary with versions and settings.
+The saved notebook was executed from a fresh kernel: all 24 code cells completed without errors. Both methods converged to approximately `J = 5.17531`, and both trajectory-feedback experiments passed the arrival and five-second hold checks. The reference environment used Python 3.14.7, JAX 0.12.0.1, NumPy 2.5.4, SciPy 1.18.1, and Matplotlib 3.11.2; results and timing may vary with versions and settings.
