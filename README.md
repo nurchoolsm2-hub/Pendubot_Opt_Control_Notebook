@@ -6,10 +6,12 @@ The notebook covers coordinates and an illustration; energy and Euler–Lagrange
 
 ## Detailed technical notes
 
-- [Download the 37-page PDF](docs/Pendubot%20Notebook%20Technical%20Notes.pdf)
+- [Download the 40-page PDF](docs/Pendubot%20Notebook%20Technical%20Notes.pdf)
 - [Download the offline HTML guide](docs/Pendubot%20Notebook%20Technical%20Notes.html) and open it in a browser for navigation and copyable code.
 
-The notes follow the notebook sections and explain the complete motion derivation, continuous-time state construction, discrete Hamiltonian, separate DDP and iLQR implementations, backward value recursion, torque updates, and feedback execution. They include 65 numbered equations, 29 code excerpts, the notebook's figures and reference results, worked numerical examples, parameter-editing instructions, and short questions with answers. The PDF uses Times New Roman and includes navigation bookmarks. The HTML guide embeds its figures and equations and works offline.
+The notes follow the notebook sections and explain the complete motion derivation, continuous-time state construction, discrete Hamiltonian, separate DDP and iLQR implementations, backward value recursion, torque updates, and feedback execution. They include 67 numbered equations, 31 code excerpts, the notebook's figures and reference results, worked numerical examples, parameter-editing instructions, and short questions with answers. The PDF uses Times New Roman and includes navigation bookmarks. The HTML guide embeds its figures and equations and works offline.
+
+The mechanics now follow the supplied **Project_261123_162507 (1).PDF**: centre-of-mass radii `r1` and `r2`, absolute second-link angle `qs`, per-link kinetic energies `T1` and `T2`, potential energy `U`, and the default numerical `M`, `C`, and `G` expressions. Notebook sections 3–5 and notes pages 5–14 show the derivation and explain the intermediate sign/factor corrections. Both equivalent denominator forms for the second acceleration are shown. The source PDF is not required to run the notebook. Physical parameters remain editable.
 
 ## Run on Ubuntu
 
@@ -50,4 +52,4 @@ Saved outputs show an executed reference run; rerunning computes new results. Gi
 
 The repository contains the teaching notebook, setup files, and companion notes. The original dashboard project is not required.
 
-The saved notebook was executed from a fresh kernel: all 24 code cells completed without errors. Both methods converged to approximately `J = 5.17531`, and both trajectory-feedback experiments passed the arrival and five-second hold checks. The reference environment used Python 3.14.7, JAX 0.12.0.1, NumPy 2.5.4, SciPy 1.18.1, and Matplotlib 3.11.2; results and timing may vary with versions and settings.
+The saved notebook was executed from a fresh kernel: all 24 code cells completed without errors. The PDF-specific formulas were independently checked at 25 test states, with maximum acceleration disagreement below `1e-10`; geometric energy and the two second-acceleration forms also passed. Both methods converged to approximately `J = 5.17531` (664 accepted DDP steps and 491 iLQR steps in this run), and both trajectory-feedback experiments passed the arrival and five-second hold checks. The reference environment used Python 3.14.7, JAX 0.12.0.1, NumPy 2.5.4, SciPy 1.18.1, and Matplotlib 3.11.2; results, iteration history, and timing may vary with algebraic evaluation order, versions, and settings.
