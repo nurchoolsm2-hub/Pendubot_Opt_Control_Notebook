@@ -4,6 +4,13 @@ Open **[Pendubot_DDP_iLQR_Tutorial.ipynb](Pendubot_DDP_iLQR_Tutorial.ipynb)** fo
 
 The notebook covers coordinates and an illustration; energy and Euler–Lagrange derivation; the mass matrix, velocity coupling, and gravity; the continuous-time state model and RK4; the quadratic objective; discrete Hamiltonian derivatives; full DDP versus iLQR; regularized backward recursion; forward line search; convergence plots; trajectory feedback; upright LQR; and inline animation. Each part includes concise equations, code, and interpretation.
 
+## Detailed technical notes
+
+- [Download the 37-page PDF](docs/Pendubot%20Notebook%20Technical%20Notes.pdf)
+- [Download the offline HTML guide](docs/Pendubot%20Notebook%20Technical%20Notes.html) and open it in a browser for navigation and copyable code.
+
+The notes follow the notebook sections and explain the complete motion derivation, continuous-time state construction, discrete Hamiltonian, separate DDP and iLQR implementations, backward value recursion, torque updates, and feedback execution. They include 65 numbered equations, 29 code excerpts, the notebook's figures and reference results, worked numerical examples, parameter-editing instructions, and short questions with answers. The PDF uses Times New Roman and includes navigation bookmarks. The HTML guide embeds its figures and equations and works offline.
+
 ## Run on Ubuntu
 
 Install Python 3.12 or newer, with virtual-environment support. After cloning this private repository while signed into GitHub:
@@ -41,6 +48,6 @@ DDP and iLQR have separate Hamiltonian cells (**10a/10b**), backward-pass cells 
 
 Saved outputs show an executed reference run; rerunning computes new results. GitHub renders the explanatory text and static plots, while the animation runs in Jupyter after execution. The notebook uses unwrapped angles in the objective and wrapped angle errors for physical reporting. It distinguishes optimizer convergence from reaching and holding the goal. Torque is unconstrained and joints are frictionless.
 
-Only the teaching notebook and small setup/documentation files are included. The original dashboard project is not required.
+The repository contains the teaching notebook, setup files, and companion notes. The original dashboard project is not required.
 
 The saved notebook was executed from a fresh kernel: all 24 code cells completed without errors. Both methods converged to approximately `J = 5.17531`, and both trajectory-feedback experiments passed the arrival and five-second hold checks. The reference environment used Python 3.14.7, JAX 0.12.0.1, NumPy 2.5.4, SciPy 1.18.1, and Matplotlib 3.11.2; results and timing may vary with versions and settings.
